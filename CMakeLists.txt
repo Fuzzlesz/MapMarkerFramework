@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.5)
 
 project(
 	MapMarkerFramework
@@ -10,12 +10,11 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 list(APPEND CMAKE_IGNORE_PATH "${PROJECT_BINARY_DIR}")
 list(APPEND CMAKE_MODULE_PATH
-	"${PROJECT_SOURCE_DIR}/tools/SKSE-CMakeModules/Modules"
+	"${PROJECT_SOURCE_DIR}/tools/Modules"
 )
 include(SKSEPlugin)
 
 set(SKSE_USE_XBYAK ON)
-set(SKSE_SUPPORT_VR OFF)
 
 SKSEPlugin_Add(
 	${PROJECT_NAME}
@@ -39,8 +38,3 @@ target_link_libraries(
 		jsoncpp_static
 		tsl::ordered_map
 )
-
-set(CPACK_GENERATOR "7Z")
-set(CPACK_PACKAGE_FILE_NAME ${PROJECT_NAME}-${PROJECT_VERSION})
-set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY FALSE)
-include(CPack)

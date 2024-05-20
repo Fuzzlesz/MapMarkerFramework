@@ -50,23 +50,6 @@
       "cacheVariables": {
         "CMAKE_CXX_FLAGS": "/EHsc /MP /W4 /WX"
       },
-      "generator": "Visual Studio 16 2019",
-      "inherits": [
-        "cmake-dev",
-        "vcpkg",
-        "windows"
-      ],
-      "name": "vs2019-windows",
-      "toolset": "v142"
-    },
-    {
-      "architecture": {
-        "strategy": "set",
-        "value": "x64"
-      },
-      "cacheVariables": {
-        "CMAKE_CXX_FLAGS": "/EHsc /MP /W4 /WX"
-      },
       "generator": "Visual Studio 17 2022",
       "inherits": [
         "cmake-dev",
@@ -75,18 +58,6 @@
       ],
       "name": "vs2022-windows",
       "toolset": "v143"
-    },
-    {
-      "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": {
-          "type": "STRING",
-          "value": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake"
-        }
-      },
-      "inherits": [
-        "vs2022-windows"
-      ],
-      "name": "github-workflows"
     }
   ],
   "version": 3

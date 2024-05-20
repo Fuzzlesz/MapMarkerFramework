@@ -2,8 +2,7 @@
 
 bool Patch::WriteDiscoveryMusicPatch(AssignMusicCallback* a_callback)
 {
-	// SkyrimSE 1.6.318.0: 0x008B12B0+0x2BB
-	REL::Relocation<std::uintptr_t> hook{ Offset::HUDNotifications::ProcessMessage, 0x2BB };
+	REL::Relocation<std::uintptr_t> hook{ Offset::HUDNotifications::ProcessMessage, 0x3B3 };
 
 	struct Patch : Xbyak::CodeGenerator
 	{
@@ -12,8 +11,8 @@ bool Patch::WriteDiscoveryMusicPatch(AssignMusicCallback* a_callback)
 			Xbyak::Label funcLbl;
 			Xbyak::Label retnLbl;
 
-			mov(edx, ptr[r15 + 0x44]);
-			lea(rcx, ptr[rbp - 0x19]);
+			mov(edx, ptr[rdi + 0x44]);
+			lea(rcx, ptr[rbp - 0x29]);
 			call(ptr[rip + funcLbl]);
 			jmp(ptr[rip + retnLbl]);
 
@@ -21,7 +20,7 @@ bool Patch::WriteDiscoveryMusicPatch(AssignMusicCallback* a_callback)
 			dq(a_funcAddr);
 
 			L(retnLbl);
-			dq(a_hookAddr + 0x1EB); // SkyrimSE 1.6.318.0: 0x008B156B
+			dq(a_hookAddr + 0x16A);
 		}
 	};
 
@@ -42,21 +41,13 @@ bool Patch::WriteLoadHUDPatch(LoadMovieFunc* a_newCall, REL::Relocation<LoadMovi
 {
 	auto& trampoline = SKSE::GetTrampoline();
 
-	// SkyrimSE 1.6.318.0: 0x8AC4F0+FE
-	auto hud_hook = REL::Relocation<std::uintptr_t>{ Offset::HUDMenu::Ctor, 0xFE };
-	// SkyrimSE 1.6.342.0: 0x8AD230+FF
-	auto hud_hook_alt = REL::Relocation<std::uintptr_t>{ Offset::HUDMenu::Ctor, 0xFF };
+	auto hud_hook = REL::Relocation<std::uintptr_t>{ Offset::HUDMenu::Ctor, 0xFF };
 
 	constexpr auto relcall = REL::make_pattern<"E8">();
 
 	if (relcall.match(hud_hook.address())) {
 		logger::trace("Using normal address for HUD hook"sv);
 		a_origCall = trampoline.write_call<5>(hud_hook.address(), a_newCall);
-		return true;
-	}
-	if (relcall.match(hud_hook_alt.address())) {
-		logger::trace("Using alternate address for HUD hook"sv);
-		a_origCall = trampoline.write_call<5>(hud_hook_alt.address(), a_newCall);
 		return true;
 	}
 	else {
@@ -69,7 +60,7 @@ bool Patch::WriteLoadMapPatch(LoadMovieFunc* a_newCall, REL::Relocation<LoadMovi
 {
 	auto& trampoline = SKSE::GetTrampoline();
 
-	auto map_hook = REL::Relocation<std::uintptr_t>{ Offset::MapMenu::Ctor, 0x1D1 };
+	auto map_hook = REL::Relocation<std::uintptr_t>{ Offset::MapMenu::Ctor, 0x1CF };
 
 	constexpr auto relcall = REL::make_pattern<"E8">();
 
@@ -89,7 +80,7 @@ bool Patch::WriteLocalMapPatch(
 {
 	auto& trampoline = SKSE::GetTrampoline();
 
-	auto door_hook = REL::Relocation<std::uintptr_t>{ Offset::LocalMapMenu::PopulateData, 0x941 };
+	auto door_hook = REL::Relocation<std::uintptr_t>{ Offset::LocalMapMenu::PopulateData, 0x7B5 };
 
 	constexpr auto relcall = REL::make_pattern<"E8">();
 

@@ -61,7 +61,7 @@ void ImportManager::InstallHooks()
 RE::GString GFxValueToString(const RE::GFxValue& a_val)
 {
 	using func_t = RE::GString* (RE::GFxValue::*)(RE::GString*) const;
-	REL::Relocation<func_t> func{ REL::ID(82297) };
+	REL::Relocation<func_t> func{ REL::ID(80274) };
 
 	RE::GString retVal;
 	func(&a_val, &retVal);

@@ -1,3 +1,5 @@
+Port of original mod by Parapets and Jelidity to Skyrim version 1.5.97:
+
 # Custom Map Marker Framework
 This SKSE plugin provides a framework for mods to add new map marker icons without being subject to
 the limitations that normally apply when adding markers without SKSE. This means:
@@ -144,8 +146,8 @@ priority, followed by `vendorList`, and then `locType`.
 
 ### Building
 ```
-git clone https://github.com/Exit-9B/MapMarkerFramework
-cd MapMarkerFramework
+git clone https://github.com/Fuzzlesz/MapMarkerFramework-1.5
+cd MapMarkerFramework-1.5
 git submodule init
 git submodule update
 cmake --preset vs2022-windows

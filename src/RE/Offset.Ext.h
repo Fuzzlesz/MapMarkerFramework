@@ -4,66 +4,73 @@ namespace Offset
 {
 	namespace GASActionBufferData
 	{
-		inline constexpr REL::ID Vtbl(242366);
+		// 1.5
+		inline constexpr REL::Offset Vtbl(0x17BC3F0);
 	}
 
 	namespace GASDoAction
 	{
-		inline constexpr REL::ID Vtbl(242413);
+		// 1.5
+		inline constexpr REL::ID Vtbl(291613);
 	}
 
 	namespace GFxInitImportActions
 	{
-		inline constexpr REL::ID Vtbl(244866);
+		// 1.5
+		inline constexpr REL::Offset Vtbl(0x17DC4C8);
 	}
 
 	namespace GFxMovieDefImpl
 	{
-		// SkyrimSE 1.6.318.0: 0x18D0260
-		inline constexpr REL::ID Vtbl(243274);
+		// 1.5
+		inline constexpr REL::Offset Vtbl(0x17DD860);
 	}
 
 	namespace GFxPlaceObject2
 	{
-		inline constexpr REL::ID Vtbl(242592);
+		// 1.5
+		inline constexpr REL::Offset Vtbl(0x17BE0E0);
 	}
 
 	namespace GFxPlaceObject3
 	{
-		inline constexpr REL::ID Vtbl(242593);
+		// 1.5
+		inline constexpr REL::Offset Vtbl(0x17BE138);
 	}
 
 	namespace GFxRemoveObject
 	{
-		inline constexpr REL::ID Vtbl(244863);
+		// 1.5
+		inline constexpr REL::Offset Vtbl(0x17DC408);
 	}
 
 	namespace GFxRemoveObject2
 	{
-		inline constexpr REL::ID Vtbl(244864);
+		// 1.5
+		inline constexpr REL::Offset Vtbl(0x17DC448);
 	}
 
 	namespace HUDMenu
 	{
-		// SkyrimSE 1.6.318.0: 0x8AC4F0
-		inline constexpr REL::ID Ctor(51610);
+		// 1.5
+		inline constexpr REL::ID Ctor(50716);
 	}
 
 	namespace HUDNotifications
 	{
-		// SkyrimSE 1.6.318.0: 0x8B12B0
-		inline constexpr REL::ID ProcessMessage(51653);
+		// 1.5
+		inline constexpr REL::ID ProcessMessage(50758);
 	}
 
 	namespace LocalMapMenu
 	{
-		// SkyrimSE 1.6.323.0: 0x90B530
-		inline constexpr REL::ID PopulateData(52971);
+		// 1.5
+		inline constexpr REL::ID PopulateData(52081);
 	}
 
 	namespace MapMenu
 	{
-		// SkyrimSE 1.6.318.0: 0x9128F0
-		inline constexpr REL::ID Ctor(53093);
+		// 1.5
+		inline constexpr REL::ID Ctor(52206);
 	}
 }
